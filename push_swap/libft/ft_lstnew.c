@@ -6,14 +6,14 @@
 /*   By: ischmutz <ischmutz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 11:56:50 by ischmutz          #+#    #+#             */
-/*   Updated: 2023/09/21 15:20:09 by ischmutz         ###   ########.fr       */
+/*   Updated: 2023/12/11 19:58:02 by ischmutz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstnew(int content)
 {
 	t_list	*new_node;
 
@@ -24,6 +24,7 @@ t_list	*ft_lstnew(void *content)
 	new_node->next = NULL;
 	return (new_node);
 }
+
 
 // "->" is an operator to select an element from a data struct pointed by a ptr.
 

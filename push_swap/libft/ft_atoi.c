@@ -6,7 +6,7 @@
 /*   By: ischmutz <ischmutz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 18:17:09 by ischmutz          #+#    #+#             */
-/*   Updated: 2023/09/22 10:30:40 by ischmutz         ###   ########.fr       */
+/*   Updated: 2023/12/11 19:01:17 by ischmutz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,31 +25,32 @@ static int	ft_odd_even(int c)
 	return (caca);
 }
 
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *str, int *overflow)
 {
-	int	i;
-	int	minus;
-	int	num;
+	int			i;
+	int			minus;
+	long long	num;
 
 	i = 0;
 	minus = 0;
 	num = 0;
+	if ((str[0] == '-' && ft_strlen(str) > 11) ||
+		(str[0] != '-' && ft_strlen(str) > 10))
+		*overflow = 1;
 	while (str[i] == ' ' || str[i] == '\f' || str[i] == '\n'
 		|| str[i] == '\r' || str[i] == '\t' || str[i] == '\v')
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
-		if (str[i] == '-')
+		if (str[i++] == '-')
 			minus++;
-		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
-	{
-		num = (num * 10) + (str[i] - 48);
-		i++;
-	}
+		num = (num * 10) + (str[i++] - 48);
 	if (ft_odd_even(minus) == 1)
 		num = num * (-1);
+	if (num > 2147483647 || num < -2147483648)
+		*overflow = 1;
 	return (num);
 }
 
