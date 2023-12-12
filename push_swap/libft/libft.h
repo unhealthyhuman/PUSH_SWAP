@@ -6,7 +6,7 @@
 /*   By: ischmutz <ischmutz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 14:56:23 by ischmutz          #+#    #+#             */
-/*   Updated: 2023/12/11 19:00:32 by ischmutz         ###   ########.fr       */
+/*   Updated: 2023/12/12 12:16:54 by ischmutz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ size_t	ft_strlen(const char *s);
 typedef struct s_list
 {
 	void			*content;
+	void			*value;
 	struct s_list	*next;
 }					t_list;
 

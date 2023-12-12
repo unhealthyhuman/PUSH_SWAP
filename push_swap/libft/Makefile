@@ -2,7 +2,7 @@ NAME = libft.a
 
 COMPILER = cc
 
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -g
 
 SRCS = ft_atoi.c\
 ft_bzero.c\

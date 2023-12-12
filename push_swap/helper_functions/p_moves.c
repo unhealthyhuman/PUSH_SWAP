@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   p_moves.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ischmutz <ischmutz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/21 13:32:10 by ischmutz          #+#    #+#             */
-/*   Updated: 2023/12/12 13:12:03 by ischmutz         ###   ########.fr       */
+/*   Created: 2023/12/12 14:03:45 by ischmutz          #+#    #+#             */
+/*   Updated: 2023/12/12 18:49:00 by ischmutz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	push(t_node **stack_dst, t_node *stack_src)
 {
-	if (!(*lst))
-		*lst = new;
-	else
-	{
-		new->next = (*lst);
-		(*lst) = new;
-	}
+	if (!stack_src)
+		return ;
+	ft_lstadd_front_pushswap(stack_dst, stack_src);
 }
 
-// If *lst (ptr to the 1st node(head)) points to nothing
-// you point it to the new node.
-//If it does point to smt, then you make next into the new head
-//Once you've made next into the head, you point the head to the new node
-//:)
+//pa : push a - take the first element at the top of b and put it at the top of a.
+//Do nothing if b is empty.
+
+//pb : push b - take the first element at the top of a and put it at the top of b.
+//Do nothing if a is empty.

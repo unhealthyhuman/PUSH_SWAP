@@ -2,9 +2,11 @@ NAME = push_swap
 
 CC = cc
 
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -g
 
 SRCS = main.c\
+push_swap_utils.c\
+movement.c
 
 OBJS := $(SRCS:%.c=%.o)
 
