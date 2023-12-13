@@ -6,7 +6,10 @@ FLAGS = -Wall -Werror -Wextra -g
 
 SRCS = main.c\
 push_swap_utils.c\
-movement.c
+movement.c\
+movement2.c\
+sorting_hat.c\
+utils.c
 
 OBJS := $(SRCS:%.c=%.o)
 
