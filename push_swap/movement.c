@@ -6,7 +6,7 @@
 /*   By: ischmutz <ischmutz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 18:51:25 by ischmutz          #+#    #+#             */
-/*   Updated: 2023/12/14 15:13:23 by ischmutz         ###   ########.fr       */
+/*   Updated: 2023/12/14 20:51:02 by ischmutz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,22 @@ void	swap2(t_node *stack_a, t_node *stack_b)
 
 void	push(t_node **stack_dst, t_node **stack_src, int option)
 {
+	t_node	*push_e;
+
+	push_e = *stack_src;
+	if (push_e == NULL)
+		return ;
+	*stack_src = (*stack_src)->next;
+	push_e->next = *stack_dst;
+	*stack_dst = push_e;
+	if (option == 1)
+		ft_printf("pa\n");
+	else if (option == 2)
+		ft_printf("pb\n");
+}
+
+/* void	push(t_node **stack_dst, t_node **stack_src, int option)
+{
 	t_node	*new;
 	t_node	*delete;
 	int		tmp;
@@ -59,7 +75,7 @@ void	push(t_node **stack_dst, t_node **stack_src, int option)
 		ft_printf("pa\n");
 	if (option == 2)
 		ft_printf("pb\n");
-}
+} */
 
 void	rotate(t_node **stack, int option)
 {
