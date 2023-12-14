@@ -6,7 +6,7 @@
 /*   By: ischmutz <ischmutz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 14:21:51 by ischmutz          #+#    #+#             */
-/*   Updated: 2023/12/14 13:07:11 by ischmutz         ###   ########.fr       */
+/*   Updated: 2023/12/14 17:45:30 by ischmutz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	main(int argc, char **argv)
 		if (!lista)
 			return (0);
 		digestive_process(data.input, &data, &lista);
-		stupid4(lista, listb);
+		sort_5(&lista, &listb);
 	}
 	
 	/* t_node *to_delete;

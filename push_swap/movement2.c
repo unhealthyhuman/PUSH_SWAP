@@ -6,7 +6,7 @@
 /*   By: ischmutz <ischmutz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:26:21 by ischmutz          #+#    #+#             */
-/*   Updated: 2023/12/14 11:38:10 by ischmutz         ###   ########.fr       */
+/*   Updated: 2023/12/14 14:20:45 by ischmutz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ void	rrotate(t_node **stack, int option)
 	new_beginning = ft_lstnew_pushswap(tmp);
 	ft_lstadd_front_pushswap(stack, new_beginning);
 	if (option == 1)
-		ft_printf("rra");
+		ft_printf("rra\n");
 	if (option == 2)
-		ft_printf("rrb");
+		ft_printf("rrb\n");
 }
 
 void	rrotate2(t_node *stack_a, t_node *stack_b)
@@ -50,5 +50,5 @@ void	rrotate2(t_node *stack_a, t_node *stack_b)
 		rrotate(&stack_a, 1);
 		rrotate(&stack_b, 2);
 	}
-	ft_printf("rrr");
+	ft_printf("rrr\n");
 }

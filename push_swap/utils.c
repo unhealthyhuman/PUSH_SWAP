@@ -6,7 +6,7 @@
 /*   By: ischmutz <ischmutz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:37:00 by ischmutz          #+#    #+#             */
-/*   Updated: 2023/12/13 17:32:37 by ischmutz         ###   ########.fr       */
+/*   Updated: 2023/12/14 18:35:13 by ischmutz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ void	set_relative_values(t_node *list)
 	tmp = list;
 	next1 = list->next;
 	i = 0;
-	list->relative_value = i;
 	while (list && next1)
 	{
+		list->relative_value = i;
 		while (next1)
 		{
 			if (list->content > next1->content)
@@ -61,6 +61,19 @@ void	set_relative_values(t_node *list)
 		}
 		i = 0;
 		next1 = tmp;
+		//ft_printf("relative value: %d\n", list->relative_value);
 		list = list->next;
 	}
+}
+
+int	bitshit(int num)
+{
+	int	i;
+
+	i = 0;
+	while (num >> i != 0)
+	{
+		i++;
+	}
+	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: ischmutz <ischmutz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 18:51:25 by ischmutz          #+#    #+#             */
-/*   Updated: 2023/12/14 11:37:17 by ischmutz         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:13:23 by ischmutz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	swap(t_node *stack, int option)
 		stack->next->content = tmp;
 	}
 	if (option == 1)
-		ft_printf("sa");
+		ft_printf("sa\n");
 	if (option == 2)
-		ft_printf("sb");
+		ft_printf("sb\n");
 }
 
 void	swap2(t_node *stack_a, t_node *stack_b)
@@ -40,15 +40,25 @@ void	swap2(t_node *stack_a, t_node *stack_b)
 	ft_printf("ss");
 }
 
-void	push(t_node **stack_dst, t_node *stack_src, int option)
+void	push(t_node **stack_dst, t_node **stack_src, int option)
 {
-	if (!stack_src)
+	t_node	*new;
+	t_node	*delete;
+	int		tmp;
+	
+	if (!*stack_src)
 		return ;
-	ft_lstadd_front_pushswap(stack_dst, stack_src);
+	tmp = (*stack_src)->content;
+	new = ft_lstnew_pushswap(tmp);
+	//protect it
+	ft_lstadd_front_pushswap(stack_dst, new);
+	delete = *stack_src;
+	*stack_src = delete->next;
+	free(delete);
 	if (option == 1)
-		ft_printf("pa");
+		ft_printf("pa\n");
 	if (option == 2)
-		ft_printf("pb");
+		ft_printf("pb\n");
 }
 
 void	rotate(t_node **stack, int option)
@@ -66,9 +76,9 @@ void	rotate(t_node **stack, int option)
 	new_last = ft_lstnew_pushswap(tmp);
 	ft_lstadd_back_pushswap(stack, new_last);
 	if (option == 1)
-		ft_printf("ra");
+		ft_printf("ra\n");
 	if (option == 2)
-		ft_printf("rb");
+		ft_printf("rb\n");
 }
 
 void	rotate2(t_node *stack_a, t_node *stack_b)
@@ -78,5 +88,5 @@ void	rotate2(t_node *stack_a, t_node *stack_b)
 		rotate(&stack_a, 1);
 		rotate(&stack_b, 2);
 	}
-	ft_printf("rr");
+	ft_printf("rr\n");
 }

@@ -6,7 +6,7 @@
 /*   By: ischmutz <ischmutz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 11:33:20 by ischmutz          #+#    #+#             */
-/*   Updated: 2023/12/12 15:10:21 by ischmutz         ###   ########.fr       */
+/*   Updated: 2023/12/14 18:37:23 by ischmutz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,19 @@ void	ft_lstadd_back_pushswap(t_node **lst, t_node *new)
 		tmp->next = new;
 		new->prev = tmp;
 	}
+}
+
+int	ft_lstsize_pushswap(t_node *lst)
+{
+	int		i;
+	t_node	*buffer;
+
+	i = 0;
+	buffer = lst;
+	while (buffer)
+	{
+		buffer = buffer->next;
+		i++;
+	}
+	return (i);
 }
