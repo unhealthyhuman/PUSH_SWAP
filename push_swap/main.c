@@ -6,7 +6,7 @@
 /*   By: ischmutz <ischmutz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 14:21:51 by ischmutz          #+#    #+#             */
-/*   Updated: 2023/12/13 17:47:39 by ischmutz         ###   ########.fr       */
+/*   Updated: 2023/12/14 13:07:11 by ischmutz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,10 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 	t_node	*lista;
+	t_node	*listb;
 	
 	lista = NULL;
+	listb = NULL;
 	if (argc > 1)
 	{
 		data.input = make_it_digestible(argc, argv, &data);
@@ -70,9 +72,10 @@ int	main(int argc, char **argv)
 		if (!lista)
 			return (0);
 		digestive_process(data.input, &data, &lista);
+		stupid4(lista, listb);
 	}
 	
-	t_node *to_delete;
+	/* t_node *to_delete;
 	//check
 	while(lista)
 	{
@@ -83,5 +86,5 @@ int	main(int argc, char **argv)
 		free(to_delete);
 	}
 	free(lista);
-	return (0);
+	return (0); */
 }

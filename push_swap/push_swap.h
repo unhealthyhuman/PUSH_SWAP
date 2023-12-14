@@ -6,7 +6,7 @@
 /*   By: ischmutz <ischmutz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 14:22:20 by ischmutz          #+#    #+#             */
-/*   Updated: 2023/12/13 18:33:39 by ischmutz         ###   ########.fr       */
+/*   Updated: 2023/12/14 13:06:02 by ischmutz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,7 @@ void	rrotate2(t_node *stack_a, t_node *stack_b);
 int		comparer(int a, int b);
 int		am_i_sorted(t_node *list);
 void	set_relative_values(t_node *list);
+void	stupid3(t_node *stack);
+void	stupid4(t_node *stacka, t_node *stackb);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ischmutz <ischmutz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:26:21 by ischmutz          #+#    #+#             */
-/*   Updated: 2023/12/13 18:19:28 by ischmutz         ###   ########.fr       */
+/*   Updated: 2023/12/14 11:38:10 by ischmutz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ void	rrotate2(t_node *stack_a, t_node *stack_b)
 {
 	if (stack_a && stack_b)
 	{
-		rrotate(&stack_a);
-		rrotate(&stack_b);
+		rrotate(&stack_a, 1);
+		rrotate(&stack_b, 2);
 	}
 	ft_printf("rrr");
 }

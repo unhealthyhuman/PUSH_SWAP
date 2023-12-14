@@ -6,7 +6,7 @@
 /*   By: ischmutz <ischmutz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 18:51:25 by ischmutz          #+#    #+#             */
-/*   Updated: 2023/12/13 18:17:48 by ischmutz         ###   ########.fr       */
+/*   Updated: 2023/12/14 11:37:17 by ischmutz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ void	push(t_node **stack_dst, t_node *stack_src, int option)
 	if (!stack_src)
 		return ;
 	ft_lstadd_front_pushswap(stack_dst, stack_src);
-	if (option == 1);
+	if (option == 1)
 		ft_printf("pa");
-	if (option == 2);
+	if (option == 2)
 		ft_printf("pb");
 }
 
