@@ -5,11 +5,12 @@ CC = cc
 FLAGS = -Wall -Werror -Wextra -g
 
 SRCS = main.c\
-push_swap_utils.c\
+node_utils.c\
 movement.c\
 movement2.c\
-sorting_hat.c\
-utils.c
+sorter.c\
+sort_utils.c\
+parsing_utils.c
 
 OBJS := $(SRCS:%.c=%.o)
 
