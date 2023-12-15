@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ischmutz <ischmutz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:37:00 by ischmutz          #+#    #+#             */
-/*   Updated: 2023/12/14 19:16:47 by ischmutz         ###   ########.fr       */
+/*   Updated: 2023/12/15 19:56:34 by ischmutz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 void	error_handler(void)
 {
 	ft_putstr_fd("ERROR\n", 2);
-	exit (1); //before terminating process, free EVERYTHING make a f() or smt smart
+	exit (1);
 }
+//remember to protect
 
 int	comparer(int a, int b)
 {
@@ -44,31 +45,42 @@ int	am_i_sorted(t_node *list)
 	return (0);
 }
 
-void	set_relative_values(t_node *list)
+void	set_r_values(t_node *list)
 {
 	t_node	*next1;
 	t_node	*tmp;
-	int	i;
-	
+	int		i;
+
 	tmp = list;
 	next1 = list->next;
 	i = 0;
 	while (list && next1)
 	{
-		list->relative_value = i;
+		list->r_value = i;
 		while (next1)
 		{
 			if (list->content > next1->content)
 			{
 				i++;
-				list->relative_value = i;
+				list->r_value = i;
 			}
 			next1 = next1->next;
 		}
 		i = 0;
 		next1 = tmp;
-		//ft_printf("relative value: %d\n", list->relative_value);
 		list = list->next;
 	}
 }
 
+void	free_list(t_node *list)
+{
+	t_node	*to_delete;
+
+	to_delete = list;
+	while (list)
+	{
+		to_delete = list;
+		list = list->next;
+		free(to_delete);
+	}
+}

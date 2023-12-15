@@ -6,7 +6,7 @@
 /*   By: ischmutz <ischmutz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 18:17:09 by ischmutz          #+#    #+#             */
-/*   Updated: 2023/12/11 19:01:17 by ischmutz         ###   ########.fr       */
+/*   Updated: 2023/12/15 19:58:37 by ischmutz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_atoi(const char *str, int *overflow)
 	i = 0;
 	minus = 0;
 	num = 0;
-	if ((str[0] == '-' && ft_strlen(str) > 11) ||
+	if ((str[0] == '-' && ft_strlen(str) > 11) || \
 		(str[0] != '-' && ft_strlen(str) > 10))
 		*overflow = 1;
 	while (str[i] == ' ' || str[i] == '\f' || str[i] == '\n'
