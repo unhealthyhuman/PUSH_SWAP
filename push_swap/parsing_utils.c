@@ -6,7 +6,7 @@
 /*   By: ischmutz <ischmutz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 19:19:47 by ischmutz          #+#    #+#             */
-/*   Updated: 2023/12/19 11:55:25 by ischmutz         ###   ########.fr       */
+/*   Updated: 2023/12/19 12:48:45 by ischmutz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	digestive_process(char **input_array, t_data *data, t_node **lst_start)
 	if (duplicate_checker(*lst_start) == 1)
 	{
 		free_list(*lst_start);
-		ft_printf("ERROR");
+		ft_printf("ERROR\n");
 		exit (1);
 	}
 	return (0);
