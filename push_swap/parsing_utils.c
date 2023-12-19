@@ -6,26 +6,24 @@
 /*   By: ischmutz <ischmutz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 19:19:47 by ischmutz          #+#    #+#             */
-/*   Updated: 2023/12/15 19:57:44 by ischmutz         ###   ########.fr       */
+/*   Updated: 2023/12/19 11:55:25 by ischmutz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	vibe_check(char *vibe, t_data *data)
+void	vibe_check(char *vibe, t_data *data, t_node *list)
 {
 	data->overflow = 0;
 	data->stack_element = ft_atoi(vibe, &data->overflow);
 	if (data->overflow == 1)
-		error_handler();
+		error_handler(list);
 }
 
-char	**make_it_digestible(int argc, char **argv, t_data *data)
+char	**make_it_digestible(char **argv, t_node *list)
 {
-	(void)argc;
-	data->i = 1;
 	if (!argv[1])
-		error_handler();
+		error_handler(list);
 	return (argv + 1);
 }
 
@@ -37,7 +35,7 @@ int	digestive_process(char **input_array, t_data *data, t_node **lst_start)
 	i = 1;
 	while (input_array[i] != NULL)
 	{
-		vibe_check(input_array[i], data);
+		vibe_check(input_array[i], data, *lst_start);
 		new = ft_lstnew_pushswap(data->stack_element);
 		if (new == NULL)
 			return (1);
@@ -45,7 +43,11 @@ int	digestive_process(char **input_array, t_data *data, t_node **lst_start)
 		i++;
 	}
 	if (duplicate_checker(*lst_start) == 1)
-		return (free_list(*lst_start), error_handler(), 1);
+	{
+		free_list(*lst_start);
+		ft_printf("ERROR");
+		exit (1);
+	}
 	return (0);
 }
 

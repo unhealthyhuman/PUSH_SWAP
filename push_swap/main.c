@@ -6,7 +6,7 @@
 /*   By: ischmutz <ischmutz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 14:21:51 by ischmutz          #+#    #+#             */
-/*   Updated: 2023/12/15 19:56:34 by ischmutz         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:16:25 by ischmutz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	max_bit(int num)
 	}
 	return (i);
 }
+
+//shift num by i to see how many digit thingies it has
 
 void	tiny_stack(t_node **lista, t_node **listb, t_data *data)
 {
@@ -60,6 +62,8 @@ void	big_stack(t_node **lista, t_node **listb, t_data *data)
 	*listb = NULL;
 }
 
+//radix bullshit, shift keept the 1s in stack a & put 0s in b
+
 void	sort_big_stack(t_node **lista, t_node **listb, t_data *data)
 {
 	data->j = 0;
@@ -82,11 +86,12 @@ int	main(int argc, char **argv)
 
 	lista = NULL;
 	listb = NULL;
+	data.argc = argc;
 	if (argc > 1)
 	{
-		data.input = make_it_digestible(argc, argv, &data);
-		invalid_char_checker(data.input);
-		vibe_check(data.input[0], &data);
+		data.input = make_it_digestible(argv, lista);
+		invalid_char_checker(data.input, lista);
+		vibe_check(data.input[0], &data, lista);
 		lista = ft_lstnew_pushswap(data.stack_element);
 		if (!lista)
 			return (0);

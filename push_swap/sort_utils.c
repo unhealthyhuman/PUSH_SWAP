@@ -6,15 +6,17 @@
 /*   By: ischmutz <ischmutz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:37:00 by ischmutz          #+#    #+#             */
-/*   Updated: 2023/12/15 19:56:34 by ischmutz         ###   ########.fr       */
+/*   Updated: 2023/12/18 15:38:58 by ischmutz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	error_handler(void)
+void	error_handler(t_node *list)
 {
 	ft_putstr_fd("ERROR\n", 2);
+	if (list != NULL)
+		free_list(list);
 	exit (1);
 }
 //remember to protect
