@@ -6,7 +6,7 @@
 /*   By: ischmutz <ischmutz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 16:32:44 by ischmutz          #+#    #+#             */
-/*   Updated: 2023/09/21 10:13:26 by ischmutz         ###   ########.fr       */
+/*   Updated: 2023/12/15 18:47:23 by ischmutz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ char	**ft_split(char const *s, char c)
 	int		len;
 
 	i = 0;
+	if (count_words(s, c) == 0)
+		return (NULL);
 	gesplit = (char **)malloc((count_words(s, c) + 1) * (sizeof(char *)));
 	if (gesplit == NULL)
 		return (NULL);
@@ -76,8 +78,7 @@ char	**ft_split(char const *s, char c)
 			gesplit[i] = put_strings(s, c);
 			if (gesplit[i] == NULL)
 				return (freeme(gesplit));
-			len = ft_strlen(gesplit[i]);
-			i++;
+			len = ft_strlen(gesplit[i++]);
 			s = s + len;
 		}
 	}

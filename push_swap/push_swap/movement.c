@@ -6,7 +6,7 @@
 /*   By: ischmutz <ischmutz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 18:51:25 by ischmutz          #+#    #+#             */
-/*   Updated: 2023/12/15 11:30:38 by ischmutz         ###   ########.fr       */
+/*   Updated: 2023/12/15 19:52:58 by ischmutz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,36 @@ void	push(t_node **stack_dst, t_node **stack_src, int option)
 		ft_printf("pb\n");
 }
 
+void	rotate(t_node **stack, int option)
+{
+	t_node	*last;
+	t_node	*new_last;
+
+	if (!stack)
+		return ;
+	last = *stack;
+	while (last->next)
+		last = last->next;
+	new_last = *stack;
+	*stack = (*stack)->next;
+	new_last->next = NULL;
+	last->next = new_last;
+	if (option == 1)
+		ft_printf("ra\n");
+	if (option == 2)
+		ft_printf("rb\n");
+}
+
+void	rotate2(t_node *stack_a, t_node *stack_b)
+{
+	if (stack_a && stack_b)
+	{
+		rotate(&stack_a, 1);
+		rotate(&stack_b, 2);
+	}
+	ft_printf("rr\n");
+}
+
 /* void	push(t_node **stack_dst, t_node **stack_src, int option)
 {
 	t_node	*new;
@@ -76,33 +106,3 @@ void	push(t_node **stack_dst, t_node **stack_src, int option)
 	if (option == 2)
 		ft_printf("pb\n");
 } */
-
-void	rotate(t_node **stack, int option)
-{
-	t_node	*to_delete;
-	t_node	*new_last;
-	int		tmp;
-
-	if (!stack)
-		return ;
-	to_delete = *stack;
-	tmp = (*stack)->content;
-	*stack = (*stack)->next;
-	free(to_delete);
-	new_last = ft_lstnew_pushswap(tmp);
-	ft_lstadd_back_pushswap(stack, new_last);
-	if (option == 1)
-		ft_printf("ra\n");
-	if (option == 2)
-		ft_printf("rb\n");
-}
-
-void	rotate2(t_node *stack_a, t_node *stack_b)
-{
-	if (stack_a && stack_b)
-	{
-		rotate(&stack_a, 1);
-		rotate(&stack_b, 2);
-	}
-	ft_printf("rr\n");
-}

@@ -6,7 +6,7 @@
 /*   By: ischmutz <ischmutz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 11:56:50 by ischmutz          #+#    #+#             */
-/*   Updated: 2023/12/12 12:02:00 by ischmutz         ###   ########.fr       */
+/*   Updated: 2023/12/15 19:58:17 by ischmutz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ t_list	*ft_lstnew(void *content)
 	new_node->next = NULL;
 	return (new_node);
 }
-
 
 // "->" is an operator to select an element from a data struct pointed by a ptr.
 

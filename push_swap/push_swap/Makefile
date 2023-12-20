@@ -1,3 +1,5 @@
+.SILENT:
+
 NAME = push_swap
 
 CC = cc
